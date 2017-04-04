@@ -35,3 +35,9 @@ java 中的基本数据类型却不是面向对象的，不能定义基本类型
  List 集合中的对象按照一定的顺序排放，里面的内容可以重复
  
  addAll(int index, Collection<? extends E> c)	boolean	将指定 collection 中的所有元素都插入到列表中的指定位置（可选操作）
+ 
+ -ArrayList：它擅长于随机访问元素，但是插入和移除元素时较慢。
+ 
+ -LinkedList：它通过代价较低的在 List 中进行插入和删除操作，提供了优化的顺序访问，它在随机访问方面相对较慢，但是它的特性集较 ArrayList 更大。
+ 
+ Set 是元素无序并且不包含重复元素的 collection（List 可以重复），被称为集。
