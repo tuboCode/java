@@ -41,3 +41,20 @@ java 中的基本数据类型却不是面向对象的，不能定义基本类型
  -LinkedList：它通过代价较低的在 List 中进行插入和删除操作，提供了优化的顺序访问，它在随机访问方面相对较慢，但是它的特性集较 ArrayList 更大。
  
  Set 是元素无序并且不包含重复元素的 collection（List 可以重复），被称为集。
+
+字节流主要操作byte类型数据，以byte数组为准，java 中每一种字节流的基本功能依赖于基本类 InputStream 和 Outputstream，他们是抽象类，不能直接使用。
+
+FileInputStream 类用于打开一个输入文件，若要打开的文件不存在，则会产生异常 FileNotFoundException，这是一个非运行时异常，必须捕获或声明抛弃；
+
+FileOutputStream 类用来打开一个输出文件，若要打开的文件不存在，则会创建一个新的文件，否则原文件的内容会被新写入的内容所覆盖；
+
+//文件如果已经存在，则在该输出上输出的内容被接到原有内容之后
+```
+FileOutputStream(String name, boolean append)·
+```
+
+类 BufferedInputStream 和 BufferedOutputStream 实现了带缓冲的过滤流，它提供了缓冲机制，把任意的 I/O 流“捆绑”到缓冲流上，可以提高 I/O 流的读取效率。
+
+一般缓冲区的大小为内存页或磁盘块等的整数倍。
+
+对于 BufferedOutputStream，只有缓冲区满时，才会将数据真正送到输出流，但可以使用 flush() 方法人为地将尚未填满的缓冲区中的数据送出
