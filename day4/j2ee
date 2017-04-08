@@ -19,3 +19,97 @@ CLDC (有限连接设备配置) 是为运行在资源非常有限的设备上的
 
 JAVA反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；
 对于任意一个对象，都能够调用它的任意一个方法和属性；这种动态获取信息以及动态调用对象的方法的功能称为java语言的反射机制。
+
+String trim()，该方法返回一个新字符串，新的字符串删除了原始串中首尾的空格。
+
+String substring(int beginIndex, int endIndex)，该方法返回一个新字符串，新的字符串包含原来字符串中从beginIndex到endIndex-1的所有内容。
+
+java中的数据类型，可分为两类： 
+1.基本数据类型，也称原始数据类型。byte,short,char,int,long,float,double,boolean 
+  他们之间的比较，应用双等号（==）,比较的是他们的值。 
+2.复合数据类型(类) 
+  当他们用（==）进行比较的时候，比较的是他们在内存中的存放地址，所以，除非是同一个new出来的对象，他们的比较后的结果为true，否则比较后结果为false。 
+  
+  JAVA当中所有的类都是继承于Object这个基类的，在Object中的基类中定义了一个equals的方法，这个方法的初始行为是比较对象的内存地址，
+  但在一些类库当中这个方法被覆盖掉了，如String,Integer,Date在这些类当中equals有其自身的实现，而不再是比较类在堆内存中的存放地址了。
+  
+对于复合数据类型之间进行equals比较，在没有覆写equals方法的情况下，他们之间的比较还是基于他们在内存中的存放位置的地址值的，
+因为Object的equals方法也是用双等号（==）进行比较的，所以比较后的结果跟双等号（==）的结果相同。
+
+Java语言是面向对象的，但Java中的基本数据类型却不是面向对象的
+
+首先你应该知道double和Double的区别，前者是基本的数据类型，后者是引用类型，即包装类。
+我们可以直接使用普通运算符“==”对基本数据类型进行比较，但如果将“==”用于比较引用类型的话，只会判断其内存地址是否相同，并且结果通常是否定的。
+
+List 的具体实现包括 ArrayList 和 Vector，它们是可变大小的列表，比较适合构建、存储和操作任何类型对象元素列表。
+List 适用于按数值索引访问元素的情形。
+
+ArrayList 就是动态数组，支持自动改变大小，可以灵活的插入和删除元素
+
+通用Map用于在应用程序中管理映射，通常在 java.util 程序包中实现，可以直接使用。
+
+    put(Object key, Object value)	将指定值与指定键相关联
+
+    get(Object key)	返回指定键所映射的值；如果此映射不包含该键的映射关系，则返回 null
+    
+    putAll(Map t)	将指定 Map 中的所有映射复制到此 map
+    
+            1、java.util.Collection 是一个集合接口。它提供了对集合对象进行基本操作的通用接口方法。
+            Collection接口在Java 类库中有很多具体的实现。
+            Collection接口的意义是为各种具体的集合提供了最大化的统一操作方式。
+            Collection   
+            ├List   
+            │├LinkedList   
+            │├ArrayList   
+            │└Vector   
+            │　└Stack   
+            └Set 
+            
+              Map
+              ├Hashtable
+              ├HashMap
+              └WeakHashMap
+
+             2、java.util.Collections 是一个包装类。它包含有各种有关集合操作的静态多态方法。
+             此类不能实例化，就像一个工具类，服务于Java的Collection框架。
+             
+    Collection是最基本的集合接口，一个Collection代表一组Object，即Collection的元素。
+一些Collection允许相同的元素而另一些不行。一些能排序而另一些不行。
+Java JDK不能提供直接继承自Collection的类，Java JDK提供的类都是继承自Collection的"子接口"，
+如:List和Set。
+
+ 注意：Map没有继承Collection接口，Map提供key到value的映射。一个Map中不能包含相同key，每个key只能映射一个value。
+ Map接口提供3种集合的视图，Map的内容可以被当做一组key集合，一组value集合，或者一组key-value映射。      
+ 
+ List用于存放多个元素，能够维护元素的次序，并且允许元素的重复,当从ArrayList的中间位置插入或者删除元素时，需要对数组进行复制、移动、代价比较高。
+ 因此，它适合随机查找和遍历，不适合插入和删除
+ 
+Vector与ArrayList一样，也是通过数组实现的 但Vector支持线程的同步,访问它比访问ArrayList慢。
+
+
+
+
+
+        HashMap几乎可以等价于Hashtable，除了HashMap是非synchronized的，并可以接受null(HashMap可以接受为null的键值(key)和值(value)，而Hashtable则不行)。
+
+而Hashtable是synchronized，这意味着Hashtable是线程安全的，多个线程可以共享一个Hashtable；
+
+而如果没有正确的同步的话，多个线程是不能共享HashMap的。
+  
+Java 5提供了ConcurrentHashMap，它是HashTable的替代，比HashTable的扩展性更好。
+
+另一个区别是HashMap的迭代器(Iterator)是fail-fast迭代器，而Hashtable的enumerator迭代器不是fail-fast的。
+
+所以当有其它线程改变了HashMap的结构（增加或者移除元素），将会抛出ConcurrentModificationException，但迭代器本身的remove()方法移除元素则不会抛出ConcurrentModificationException异常。
+
+但这并不是一个一定发生的行为，要看JVM。这条同样也是Enumeration和Iterator的区别。
+
+由于Hashtable是线程安全的也是synchronized，所以在单线程环境下它比HashMap要慢。
+
+如果你不需要同步，只需要单一线程，那么使用HashMap性能要好过Hashtable。
+
+HashMap不能保证随着时间的推移Map中的元素次序是不变的。
+
+
+
+
