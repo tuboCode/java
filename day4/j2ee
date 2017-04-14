@@ -110,6 +110,5 @@ Java 5提供了ConcurrentHashMap，它是HashTable的替代，比HashTable的扩
 
 HashMap不能保证随着时间的推移Map中的元素次序是不变的。
 
-
-
+泛型是程序设计语言的一种特性，它允许程序员在编写代码时定义一些可变的部分，而这些部分必须在使用前作出指明。
 
