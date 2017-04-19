@@ -28,10 +28,42 @@ add()方法可以将指定组件添加到此容器的给定位置上
 
 Vector vec = new Vector(10,2); 该方法创建了一个长度为10的Vector,并且当向量需要增加时，每次增加为2
 
+vector(向量): C++中的一种数据结构,确切的说是一个类.它相当于一个动态的数组,当程序员无法知道自己需要的数组的规模多大时,用其来解决问题可以达到最大节约空间的目的
+
 JFrame是一个顶层的框架类，好比一个窗户的框子。也是一个容器类。这个框子可以嵌入几个玻璃窗。
  
 JPanel是一个容器类，相当于一大玻璃窗。
  
 JLabel等是一些基础组件，它必须置于某个容器里，类似于窗花、剪纸，必须置于窗户的表面。
+
+一、单行文本输入框（JTextField）
+
+　　在许多情况下，用户可能还需要输入一些文字，这时就需要用到文本输入框。单行文本输入框是由 JTextField 类实现的。它的构造函数如下:
+
+　　(1) JTextField() 构造一个新的单行文本输入框。
+
+　　(2) JTextField(int length) 构造一个指定长度的单行文本输入框。
+
+　　(3) JtextField(String text) 构造一个指定初始内容的单行文本输入框。
+
+　　(4) JTextField(String text,int length) 构造一个指定长度，指定初始内容的单行文本输入框。
+
+　　(5) JTextField(Document docu,String text,int length) 指定文件存储模式构造一个指定长度，指定初始内容的单行文本输入框。
+
+二、多行文本输入框（JTextArea）
+
+　　多行文本输入框的功能与单行文本输入框的功能相同，只是它能显示更多的文字。因为单行文本输入框只能输入一行的文字，所以需要输入和显示较多的文字时，就要用到多行文本输入框。多行文本输入框是由 JTextArea 类实现的。JTextArea类的构造方法有4种:
+
+　　(1) JTextArea() 构造一个新的多行文本输入框。
+
+　　(2) JTextArea(int row,int column) 构造一个指定长度和宽度的多行文本输入框。
+
+　　(3) JTextArea(String text) 构造一个显示指定文字的多行文本输入框。
+
+　　(4) JTextArea(String text,int row,int column) 构造一个指定长度，指定宽度，并显示指定文字的多行文本输入框。
+
+　　(5) JTextArea(Document doc) 构造一个指定文件存储模式的多行文本输入框。
+
+　　(6) JTextArea(Document doc,String text,int row,int column) 构造一个指定文件存储模式，指定长度和指定宽度，并显示指定文字的多行文本输入框。
 
 getSource( ) 获取产生事件组件的组件名 getActionCommand( ) 获取与组件有关的文本
